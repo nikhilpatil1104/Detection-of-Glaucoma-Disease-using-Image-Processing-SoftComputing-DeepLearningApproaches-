@@ -52,7 +52,8 @@ The provided structure offers different functionalities within the project:
 
 It's highly recommended to create a virtual environment to isolate project dependencies. Here's an example using `venv`:
 
-      ``bash
+``bash
+      
       python -m venv env
       source env/bin/activate  # Linux/macOS
       env\Scripts\activate  # Windows
@@ -63,7 +64,7 @@ To install the required libraries for this project, ensure you have a `requireme
 
 If you are using a virtual environment, activate it first. Then, install the dependencies:
 
-        ```bash
+      ```bash
         pip install -r requirements.txt
 
 ## Getting Started
