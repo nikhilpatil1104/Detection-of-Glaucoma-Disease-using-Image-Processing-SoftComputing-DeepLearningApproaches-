@@ -53,6 +53,7 @@ The provided structure offers different functionalities within the project:
 It's highly recommended to create a virtual environment to isolate project dependencies. Here's an example using `venv`:
 
       ```bash
+      
       python -m venv env
       source env/bin/activate  # Linux/macOS
       env\Scripts\activate  # Windows
