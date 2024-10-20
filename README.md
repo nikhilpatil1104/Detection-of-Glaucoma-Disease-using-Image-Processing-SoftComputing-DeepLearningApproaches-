@@ -52,7 +52,6 @@ The provided structure offers different functionalities within the project:
 
 It's highly recommended to create a virtual environment to isolate project dependencies. Here's an example using `venv`:
 
-``bash
       
       python -m venv env
       source env/bin/activate  # Linux/macOS
@@ -64,7 +63,7 @@ To install the required libraries for this project, ensure you have a `requireme
 
 If you are using a virtual environment, activate it first. Then, install the dependencies:
 
-      ```bash
+      
         pip install -r requirements.txt
 
 ## Getting Started
@@ -79,14 +78,35 @@ Follow these steps to set up and run the project:
 
    This script resizes, converts images to grayscale, and normalizes them for model training.
 
-       ```bash
+       
        python dataset.py
 ### 3. Train the Machine Learning Models
 
 - **Train the KNN model:**
 
-  ```bash
-  python train_knn.py
+  ```
+     python train_knn.py
+
+
+
+### 4. Train the VGG-16 Model
+
+      ```
+      python train_vgg16.py
+### 5. Evaluate Performance
+
+This script assesses the trained models' accuracy, precision, recall, F1-score, and other metrics using a dedicated test set.
+
+      ```
+      python evaluate_model.py
+### 6. Make Predictions on New Images
+
+Use the trained models to predict the presence of glaucoma in new images. Here's an example with the KNN model:
+
+      ```
+      python predict.py --image "path/to/your/image.jpg"
+
+
 
 
 
