@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glaucoma Detection</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center">Glaucoma Detection System</h1>
+
+    <form id="upload-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="image">Upload Retinal Image:</label>
+            <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div id="result" class="mt-4">
+        <h3>Prediction Result:</h3>
+        <p id="glaucoma-prob"></p>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#upload-form').on('submit', function(e) {
+            e.preventDefault();
+            
+            var formData = new FormData();
+            var file = $('#image')[0].files[0];
+            formData.append('image', file);
+
+            $.ajax({
+                type: 'POST',
+                url: '/predict',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#glaucoma-prob').text('Glaucoma Probability: ' + response.glaucoma_probability);
+                },
+                error: function() {
+                    alert('Error occurred while processing the image.');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
